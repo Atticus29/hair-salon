@@ -12,10 +12,14 @@ public class Stylist {
     this.name = name;
     this.hours = hours;
     this.specialties = specialties;
-    this.pathToImg = pathToImg;
+    if(pathToImg.equals("")){
+      this.pathToImg = "../../resources/public/images/dummy.jpg";
+    }else{
+      this.pathToImg = pathToImg;
+    }
   }
 
-  // Add validate hours method
+  // ATTN Add validate hours method
 
   public String getName(){
     return this.name;
@@ -73,6 +77,16 @@ public class Stylist {
     try(Connection con = DB.sql2o.open()){
       Stylist result = con.createQuery(sqlCommand)
       .addParameter("id", id)
+      .executeAndFetchFirst(Stylist.class);
+      return result;
+    }
+  }
+
+  public static Stylist findByName(String name){
+    String sqlCommand = "SELECT * FROM stylists WHERE name=:name;";
+    try(Connection con = DB.sql2o.open()){
+      Stylist result = con.createQuery(sqlCommand)
+      .addParameter("name", name)
       .executeAndFetchFirst(Stylist.class);
       return result;
     }
