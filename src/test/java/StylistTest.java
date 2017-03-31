@@ -11,7 +11,7 @@ public class StylistTest {
 
   @Before
   public void setUp() {
-    testStylist = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows");
+    testStylist = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/raven.jpg");
     testStylist.save();
   }
 
@@ -25,11 +25,12 @@ public class StylistTest {
     assertEquals("Raven", testStylist.getName());
     assertEquals("08:00-16:00MSN", testStylist.getHours());
     assertEquals("hair, corn rows", testStylist.getSpecialties());
+    assertEquals("../../resources/public/images/raven.jpg", testStylist.getPathToImg());
   }
 
   @Test
   public void all_returnsListOfStylists_true(){
-    Stylist testStylist2 = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows");
+    Stylist testStylist2 = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/raven.jpg");
     testStylist2.save();
     List<Stylist> results = Stylist.all();
     assertEquals(2, results.size());
@@ -44,7 +45,7 @@ public class StylistTest {
 
   @Test
   public void find_returnsSecondStylist_true(){
-    Stylist testStylist2 = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows");
+    Stylist testStylist2 = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/raven.jpg");
     testStylist2.save();
     int Stylist2Id = testStylist2.getId();
     assertEquals(testStylist2, Stylist.find(Stylist2Id));
@@ -52,7 +53,7 @@ public class StylistTest {
 
   @Test
   public void equals_correctlyAssessesTheEqualityOfStylistObjects_true(){
-    Stylist testStylist2 = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows");
+    Stylist testStylist2 = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/raven.jpg");
     testStylist2.setId(testStylist.getId());
     assertEquals(testStylist, testStylist2);
   }
@@ -78,13 +79,13 @@ public class StylistTest {
   public void update_changesTheValuesOfAStylistInDatabase_true(){
     Stylist retrievedStylist = Stylist.find(testStylist.getId());
     assertTrue(retrievedStylist.equals(testStylist));
-    testStylist.update("JuJuBe", "08:00-16:00MSN", "hair, corn rows");
+    testStylist.update("JuJuBe", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/jujube.jpg");
     assertFalse(retrievedStylist.equals(Stylist.find(testStylist.getId())));
   }
 
   @Test
   public void delete_removesEntryFromDatabase_true(){
-    Stylist testStylist2 = new Stylist ("JuJuBe", "08:00-16:00MSN", "hair, corn rows");
+    Stylist testStylist2 = new Stylist ("JuJuBe", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/jujube.jpg");
     testStylist2.save();
     assertEquals(2, Stylist.all().size());
     testStylist2.delete();
