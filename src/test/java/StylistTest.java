@@ -3,18 +3,26 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class StylistTest {
+  private Stylist testStylist;
+
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
 
   @Before
   public void setUp() {
-    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
+    testStylist = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows");
   }
 
-  @After
-  public void tearDown() {
-    try (Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM name_of_your_table *;";
-      con.createQuery(sql).executeUpdate();
-    }
+  @Test
+  public void stylist_instantiatesCorrectly_true(){
+    assertTrue(testStylist instanceof Stylist);
+  }
+
+  @Test
+  public void getters_returnWhatTheyreSupposedTo_true(){
+    assertEquals("Raven", testStylist.getName());
+    assertEquals("08:00-16:00MSN", testStylist.getHours());
+    assertEquals("hair, corn rows", testStylist.getSpecialties());
   }
 
 }
