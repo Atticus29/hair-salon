@@ -57,21 +57,21 @@ public class StylistTest {
     assertEquals(testStylist, testStylist2);
   }
 
-  // @Test
-  // public void getClients_returns_listOfClients_true(){
-  //   int stylistID = testStylist.getId();
-  //   Client testClient1 = new Client();
-  //   testClient1.setStylistId(stylistID);
-  //   testClient1.save();
-  //   Client testClient2 = new Client();
-  //   testClient2.setStylistId(stylistID);
-  //   testClient2.save();
-  //   Client testClient3 = new Client();
-  //   testClient3.setStylistId(stylistID);
-  //   testClient3.save();
-  //   List<Client> results = testStylist.getClients();
-  //   assertEquals(3, results.size());
-  //   assertEquals(testClient3, results.get(2));
-  // }
+  @Test
+  public void getClients_returns_listOfClients_true(){
+    int stylistID = testStylist.getId();
+    Client testClient1 = new Client(1, "Victoria Porkchop Parker", "6095779090", "1 Porkchop Avenue Portland, OR 97217", "thatNoseThough@gmail.com", "Make sure to say hey to her", "Naomi Smalls", "Bennett Bennettson", "6095779091", true);
+    testClient1.setStylistId(stylistID);
+    testClient1.save();
+    Client testClient2 = new Client(1, "Jade Jolie", "6095778080", "1 Lippy Lane Gainesville, FL 97213", "tuna_on_a_platter@gmail.com", "Make sure her hips match her shoulders", "Kim Chi", "Rebecca Rebeccasdottir", "6095778081", true);
+    testClient2.setStylistId(stylistID);
+    testClient2.save();
+    Client testClient3 = new Client(1, "Jade Jolie Clone", "6095778080", "1 Lippy Lane Gainesville, FL 97213", "tuna_on_a_platter@gmail.com", "Make sure her hips match her shoulders", "Kim Chi", "Rebecca Rebeccasdottir", "6095778081", true);
+    testClient3.setStylistId(stylistID);
+    testClient3.save();
+    List<Client> results = testStylist.getClients();
+    assertEquals(3, results.size());
+    assertEquals(testClient3, results.get(2));
+  }
 
 }

@@ -63,4 +63,11 @@ public class ClientTest {
     assertEquals(testClient, testClient2);
   }
 
+  @Test
+  public void setStylistId_allowsUserToChangeStylistID_true(){
+    int originalStylistid = testClient.getStylistid();
+    testClient.setStylistId(originalStylistid + 1);
+    assertFalse(originalStylistid == testClient.getStylistid());
+  }
+
 }
