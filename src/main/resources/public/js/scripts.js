@@ -10,4 +10,14 @@ $(function(){
     $("#main-content").hide();
     $("#about-content").show();
   });
+
+  $("#hidden-edit-form").click(function(){
+    event.preventDefault();
+    $("#hidden-edit-form").show();
+  });
+
+  $("#update-button").click(function(){
+    event.preventDefault();
+    $("#hidden-edit-form").hide();
+  });
 });

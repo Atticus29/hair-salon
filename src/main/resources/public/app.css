@@ -23,3 +23,16 @@
   height: 200px;
   width: auto;
 }
+
+#hidden-edit-form{
+  display: none;
+}
+
+#search-form{
+  float: right;
+}
+
+#logo-image{
+  width: 66%;
+  float: left;
+}

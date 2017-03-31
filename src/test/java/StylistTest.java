@@ -100,4 +100,10 @@ public class StylistTest {
     assertEquals(1, Stylist.all().size());
   }
 
+  @Test
+  public void stylist_assignsAnEmptyPathTheDummyJpg_true(){
+    Stylist testStylist2 = new Stylist ("JuJuBe", "08:00-16:00MSN", "hair, corn rows", null);
+    assertEquals("../../resources/public/images/dummy.jpg", testStylist2.getPathToImg());
+  }
+
 }

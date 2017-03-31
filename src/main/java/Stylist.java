@@ -12,7 +12,7 @@ public class Stylist {
     this.name = name;
     this.hours = hours;
     this.specialties = specialties;
-    if(pathToImg.equals("")){
+    if(pathToImg==null || pathToImg.equals("")){
       this.pathToImg = "../../resources/public/images/dummy.jpg";
     }else{
       this.pathToImg = pathToImg;
