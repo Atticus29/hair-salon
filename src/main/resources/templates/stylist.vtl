@@ -1,0 +1,35 @@
+<!-- stylist.vtl -->
+
+<div class="row" id="stylist-master-row">
+  <div class="col-md-1" id="client-list">
+    #if ($stylist.getClients())
+    <h3>Clients:</h3>
+      #foreach ($client in $stylist.getClients())
+      <li>
+        <a href="/stylists/$stylist.getName()/clients/$client.getName()">$client.getName()</a>
+      </li>
+      #end
+    #else
+      <h3>$stylist.getName() currently has no clients. Be the first!</h3>
+    #end
+    <a href="/stylists/$stylist.getName()/clients/new" class="btn btn-success">Add client</a>
+  </div>
+  <div class="col-md-11" id="stylist-content">
+    <img src="$stylist.getPathToImg()" alt="$stylist.getName()" class="stylist-page-mugshot">
+    <h2>
+      Stylist: <h3>$stylist$getName()</h3>
+    </h2>
+    <h3>
+      Available: <h4>$stylist.getHours()</h4>
+    </h3>
+    <h3>
+      Services offered: <h4>$stylist.getSpecialties()</h4>
+    </h3>
+    <footer>
+      Note: M = Monday, T = Tuesday, W = Wednesday, R = Thursday, F = Friday, S = Saturyda, N= Sunday
+    </footer>
+  </div>
+</div>
+
+
+<!-- stylist.vtl -->
