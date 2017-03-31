@@ -84,7 +84,8 @@ CREATE TABLE stylists (
     id integer NOT NULL,
     name character varying,
     hours character varying,
-    specialties character varying
+    specialties character varying,
+    pathtoimg character varying
 );
 
 
@@ -146,9 +147,9 @@ SELECT pg_catalog.setval('clients_id_seq', 2, true);
 -- Data for Name: stylists; Type: TABLE DATA; Schema: public; Owner: mf
 --
 
-COPY stylists (id, name, hours, specialties) FROM stdin;
-1	Naomi Smalls	09:00-17:00MWF	hair, color, extensions
-2	Kim Chi	09:00-17:00TR	hair, color
+COPY stylists (id, name, hours, specialties, pathtoimg) FROM stdin;
+2	Kim Chi	09:00-17:00TR	hair, color	../../resources/public/images/kimchi.jpg
+1	Naomi Smalls	09:00-17:00MWF	hair, color, extensions	../../resources/public/images/naomi.jpg
 \.
 
 

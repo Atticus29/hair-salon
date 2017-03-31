@@ -6,11 +6,13 @@ public class Stylist {
   private String name;
   private String hours;
   private String specialties;
+  private String pathToImg;
 
-  public Stylist(String name, String hours, String specialties) {
+  public Stylist(String name, String hours, String specialties, String pathToImg) {
     this.name = name;
     this.hours = hours;
     this.specialties = specialties;
+    this.pathToImg = pathToImg;
   }
 
   // Add validate hours method
@@ -31,6 +33,10 @@ public class Stylist {
     return this.id;
   }
 
+  public String getPathToImg(){
+    return this.pathToImg;
+  }
+
   public void setId(int id){
     this.id = id;
   }
@@ -44,17 +50,19 @@ public class Stylist {
       return newStylist.getName().equals(this.getName()) &&
       newStylist.getHours().equals(this.getHours()) &&
       newStylist.getSpecialties().equals(this.getSpecialties()) &&
+      newStylist.getPathToImg().equals(this.getPathToImg()) &&
       newStylist.getId() == this.getId();
     }
   }
 
   public void save(){
-    String sqlCommand = "INSERT INTO stylists (name, hours, specialties) VALUES (:name, :hours, :specialties);";
+    String sqlCommand = "INSERT INTO stylists (name, hours, specialties, pathToImg) VALUES (:name, :hours, :specialties, :pathToImg);";
     try(Connection con=DB.sql2o.open()){
       this.id = (int) con.createQuery(sqlCommand, true)
       .addParameter("name", this.name)
       .addParameter("hours", this.hours)
       .addParameter("specialties", this.specialties)
+      .addParameter("pathToImg", this.pathToImg)
       .executeUpdate()
       .getKey();
     }
@@ -89,13 +97,14 @@ public class Stylist {
     }
   }
 
-  public void update(String name, String hours, String specialties){
-    String sqlCommand = "UPDATE stylists SET name=:name, hours=:hours, specialties=:specialties WHERE id=:id;";
+  public void update(String name, String hours, String specialties, String pathToImg){
+    String sqlCommand = "UPDATE stylists SET name=:name, hours=:hours, specialties=:specialties, pathToImg=:pathToImg WHERE id=:id;";
     try(Connection con=DB.sql2o.open()){
       con.createQuery(sqlCommand)
       .addParameter("name", name)
       .addParameter("hours", hours)
       .addParameter("specialties", specialties)
+      .addParameter("pathToImg", pathToImg)
       .addParameter("id", this.id)
       .executeUpdate();
     }

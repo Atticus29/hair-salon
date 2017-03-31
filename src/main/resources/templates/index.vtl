@@ -1,3 +1,27 @@
 <!--index.vtl-->
 
+<div class="row" id="main-row">
+  <div class="col-md-2" id="side">
+    <p class="btn btn-info" id="stylist-reveal">Stylists</p>
+    <br>
+    <a href="/stylists/new" class="btn btn-success">Add Stylist</a>
+    <br>
+
+  </div>
+  <div class="col-md-10" id="main-content">
+    #if ($stylists)
+      #foreach ($stylist in $stylists)
+        <li>
+          <a href="/stylists/$stylist.getName()">
+            <img src="$stylist.getPathToImg()" alt="$stylist.getName()">
+          </a>
+          <h3>$stylist.getName()</h3>
+        </li>
+      #end
+    #else
+      <p>There are currently no active stylists at Ru Paul's Hair Salon.</p>
+    #end
+  </div>
+</div>
+
 <!--index.vtl-->

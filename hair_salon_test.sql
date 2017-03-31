@@ -84,7 +84,8 @@ CREATE TABLE stylists (
     id integer NOT NULL,
     name character varying,
     hours character varying,
-    specialties character varying
+    specialties character varying,
+    pathtoimg character varying
 );
 
 
@@ -137,14 +138,14 @@ COPY clients (id, stylistid, name, phone, address, email, special_details, prefe
 -- Name: clients_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mf
 --
 
-SELECT pg_catalog.setval('clients_id_seq', 1, false);
+SELECT pg_catalog.setval('clients_id_seq', 159, true);
 
 
 --
 -- Data for Name: stylists; Type: TABLE DATA; Schema: public; Owner: mf
 --
 
-COPY stylists (id, name, hours, specialties) FROM stdin;
+COPY stylists (id, name, hours, specialties, pathtoimg) FROM stdin;
 \.
 
 
@@ -152,7 +153,7 @@ COPY stylists (id, name, hours, specialties) FROM stdin;
 -- Name: stylists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mf
 --
 
-SELECT pg_catalog.setval('stylists_id_seq', 32, true);
+SELECT pg_catalog.setval('stylists_id_seq', 141, true);
 
 
 --
