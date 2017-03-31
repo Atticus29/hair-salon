@@ -75,7 +75,7 @@ public class ClientTest {
     Client retrievedClient = Client.find(testClient.getId());
     assertTrue(retrievedClient.equals(testClient));
     testClient.update(1, "Bebe Zahara Benet", "6095779090", "1 Porkchop Avenue Portland, OR 97217", "beautyFace@gmail.com", "Make sure to say hey to her", "Naomi Smalls", "Bennett Bennettson", "5555555555", true);
-    // assertFalse(retrievedClient.equals(testClient));
+    assertFalse(retrievedClient.equals(Client.find(testClient.getId())));
   }
 
 }
