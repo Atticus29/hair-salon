@@ -42,13 +42,13 @@ CREATE TABLE clients (
     id integer NOT NULL,
     stylistid integer,
     name character varying,
-    phone integer,
+    phone character varying,
     address character varying,
     email character varying,
     special_details character varying,
     preferred_stylist character varying,
     emergency_name character varying,
-    emergency_phone integer,
+    emergency_phone character varying,
     ok_to_text boolean
 );
 
@@ -152,7 +152,7 @@ COPY stylists (id, name, hours, specialties) FROM stdin;
 -- Name: stylists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mf
 --
 
-SELECT pg_catalog.setval('stylists_id_seq', 1, false);
+SELECT pg_catalog.setval('stylists_id_seq', 32, true);
 
 
 --
