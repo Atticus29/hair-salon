@@ -42,9 +42,9 @@ public class Stylist {
     } else{
       Stylist newStylist = (Stylist) secondStylist;
       return newStylist.getName().equals(this.getName()) &&
-        newStylist.getHours().equals(this.getHours()) &&
-        newStylist.getSpecialties().equals(this.getSpecialties()) &&
-        newStylist.getId() == this.getId();
+      newStylist.getHours().equals(this.getHours()) &&
+      newStylist.getSpecialties().equals(this.getSpecialties()) &&
+      newStylist.getId() == this.getId();
     }
   }
 
@@ -52,11 +52,11 @@ public class Stylist {
     String sqlCommand = "INSERT INTO stylists (name, hours, specialties) VALUES (:name, :hours, :specialties);";
     try(Connection con=DB.sql2o.open()){
       this.id = (int) con.createQuery(sqlCommand, true)
-        .addParameter("name", this.name)
-        .addParameter("hours", this.hours)
-        .addParameter("specialties", this.specialties)
-        .executeUpdate()
-        .getKey();
+      .addParameter("name", this.name)
+      .addParameter("hours", this.hours)
+      .addParameter("specialties", this.specialties)
+      .executeUpdate()
+      .getKey();
     }
   }
 
@@ -64,8 +64,8 @@ public class Stylist {
     String sqlCommand = "SELECT * FROM stylists WHERE id=:id;";
     try(Connection con = DB.sql2o.open()){
       Stylist result = con.createQuery(sqlCommand)
-        .addParameter("id", id)
-        .executeAndFetchFirst(Stylist.class);
+      .addParameter("id", id)
+      .executeAndFetchFirst(Stylist.class);
       return result;
     }
   }
@@ -74,7 +74,7 @@ public class Stylist {
     String sqlCommand = "SELECT * FROM stylists;";
     try(Connection con = DB.sql2o.open()){
       List<Stylist> results = con.createQuery(sqlCommand)
-        .executeAndFetch(Stylist.class);
+      .executeAndFetch(Stylist.class);
       return results;
     }
   }
@@ -83,8 +83,8 @@ public class Stylist {
     String sqlCommand = "SELECT * FROM clients WHERE stylistid=:stylistid;";
     try(Connection con = DB.sql2o.open()){
       List<Client> results = con.createQuery(sqlCommand)
-        .addParameter("stylistid", this.id)
-        .executeAndFetch(Client.class);
+      .addParameter("stylistid", this.id)
+      .executeAndFetch(Client.class);
       return results;
     }
   }
