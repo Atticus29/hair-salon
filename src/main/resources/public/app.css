@@ -17,3 +17,9 @@
 #about-content{
   display: none;
 }
+
+.stylist-page-mugshot{
+  float: left;
+  height: 200px;
+  width: auto;
+}
