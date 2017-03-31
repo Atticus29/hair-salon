@@ -6,6 +6,7 @@ public class Client {
   private int stylistid;
   private String name;
   private String phone;
+  // ATTN add validate phone number method
   private String address;
   private String email;
   private String special_details;

@@ -2,7 +2,12 @@
 
 <div class="row" id="stylist-master-row">
   <div class="col-md-1" id="client-list">
-    #if ($stylist.getClients())
+    <p class="btn btn-warn" id="stylist-edit-trigger">Modify Stylist Details</p>
+    <!-- <form class="" action="index.html" method="post" id="stylist-edit-button">
+      <button type="submit" class="btn btn-warn">Modify Stylist Details</button>
+    </form> -->
+    <a href="/stylist/$stylist.getName()/"></a>
+    #if ($stylist.getClients().size()>0)
     <h3>Clients:</h3>
       #foreach ($client in $stylist.getClients())
       <li>
@@ -17,7 +22,7 @@
   <div class="col-md-11" id="stylist-content">
     <img src="$stylist.getPathToImg()" alt="$stylist.getName()" class="stylist-page-mugshot">
     <h2>
-      Stylist: <h3>$stylist$getName()</h3>
+      Stylist: <h3>$stylist.getName()</h3>
     </h2>
     <h3>
       Available: <h4>$stylist.getHours()</h4>
@@ -25,6 +30,11 @@
     <h3>
       Services offered: <h4>$stylist.getSpecialties()</h4>
     </h3>
+    <div id="hidden-edit-form">
+      <form action="/stylists/$stylist.getName()/update" method="post">
+        <button type="submit" id="update-button">Update</button>
+      </form>
+    </div>
     <footer>
       Note: M = Monday, T = Tuesday, W = Wednesday, R = Thursday, F = Friday, S = Saturyda, N= Sunday
     </footer>
