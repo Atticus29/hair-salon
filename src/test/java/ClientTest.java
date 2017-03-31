@@ -78,4 +78,13 @@ public class ClientTest {
     assertFalse(retrievedClient.equals(Client.find(testClient.getId())));
   }
 
+  @Test
+  public void delete_removesEntryFromDatabase_true(){
+    Client testClient2 = new Client (1, "Victoria Porkchop Parker", "6095779090", "1 Porkchop Avenue Portland, OR 97217", "thatNoseThough@gmail.com", "Make sure to say hey to her", "Naomi Smalls", "Bennett Bennettson", "6095779091", true);
+    testClient2.save();
+    assertEquals(2, Client.all().size());
+    testClient2.delete();
+    assertEquals(1, Client.all().size());
+  }
+
 }
