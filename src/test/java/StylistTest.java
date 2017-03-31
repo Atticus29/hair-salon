@@ -74,4 +74,21 @@ public class StylistTest {
     assertEquals(testClient3, results.get(2));
   }
 
+  @Test
+  public void update_changesTheValuesOfAStylistInDatabase_true(){
+    Stylist retrievedStylist = Stylist.find(testStylist.getId());
+    assertTrue(retrievedStylist.equals(testStylist));
+    testStylist.update("JuJuBe", "08:00-16:00MSN", "hair, corn rows");
+    assertFalse(retrievedStylist.equals(Stylist.find(testStylist.getId())));
+  }
+
+  @Test
+  public void delete_removesEntryFromDatabase_true(){
+    Stylist testStylist2 = new Stylist ("JuJuBe", "08:00-16:00MSN", "hair, corn rows");
+    testStylist2.save();
+    assertEquals(2, Stylist.all().size());
+    testStylist2.delete();
+    assertEquals(1, Stylist.all().size());
+  }
+
 }

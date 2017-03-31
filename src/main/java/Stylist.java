@@ -89,4 +89,25 @@ public class Stylist {
     }
   }
 
+  public void update(String name, String hours, String specialties){
+    String sqlCommand = "UPDATE stylists SET name=:name, hours=:hours, specialties=:specialties WHERE id=:id;";
+    try(Connection con=DB.sql2o.open()){
+      con.createQuery(sqlCommand)
+      .addParameter("name", name)
+      .addParameter("hours", hours)
+      .addParameter("specialties", specialties)
+      .addParameter("id", this.id)
+      .executeUpdate();
+    }
+  }
+
+  public void delete(){
+    String sqlCommand = "DELETE FROM stylists WHERE id=:id;";
+    try(Connection con=DB.sql2o.open()){
+      con.createQuery(sqlCommand)
+        .addParameter("id", this.id)
+        .executeUpdate();
+    }
+  }
+
 }
