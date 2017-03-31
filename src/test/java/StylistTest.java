@@ -45,6 +45,14 @@ public class StylistTest {
 
   @Test
   public void find_returnsSecondStylist_true(){
+    Stylist testStylist2 = new Stylist ("Sharon", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/raven.jpg");
+    testStylist2.save();
+    String name = testStylist2.getName();
+    assertEquals(testStylist2, Stylist.findByName(name));
+  }
+
+  @Test
+  public void findByName_returnsSecondStylist_true(){
     Stylist testStylist2 = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/raven.jpg");
     testStylist2.save();
     int Stylist2Id = testStylist2.getId();

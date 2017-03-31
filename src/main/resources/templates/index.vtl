@@ -2,11 +2,16 @@
 
 <div class="row" id="main-row">
   <div class="col-md-2" id="side">
+    <p class="btn btn-primary" id="about-reveal">About</p>
+    <br>
+    <br>
     <p class="btn btn-info" id="stylist-reveal">Stylists</p>
     <br>
-    <a href="/stylists/new" class="btn btn-success">Add Stylist</a>
     <br>
-
+    <a href="/stylists/new" class="btn btn-success">Add Stylist</a>
+  </div>
+  <div class="col-md-10" id="about-content">
+    <p>Ru Paul's Hair Salon was founded under the premise that...</p>
   </div>
   <div class="col-md-10" id="main-content">
     #if ($stylists)
