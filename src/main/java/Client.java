@@ -137,5 +137,24 @@ public class Client {
     this.stylistid = id;
   }
 
+  public void update(int stylistid, String name, String phone, String address, String email, String special_details, String preferred_stylist, String emergency_name, String emergency_phone, boolean ok_to_text){
+    String sqlCommand = "UPDATE clients SET stylistid=:stylistid, name=:name, phone=:phone, address=:address, email=:email, special_details=:special_details, preferred_stylist=:preferred_stylist, emergency_name=:emergency_name, emergency_phone=:emergency_phone, ok_to_text=:ok_to_text WHERE id=:id;";
+    try(Connection con=DB.sql2o.open()){
+      con.createQuery(sqlCommand)
+      .addParameter("stylistid", stylistid)
+      .addParameter("name", name)
+      .addParameter("phone", phone)
+      .addParameter("address", address)
+      .addParameter("email", email)
+      .addParameter("special_details", special_details)
+      .addParameter("preferred_stylist", preferred_stylist)
+      .addParameter("emergency_name", emergency_name)
+      .addParameter("emergency_phone", emergency_phone)
+      .addParameter("ok_to_text", ok_to_text)
+      .addParameter("id", this.id)
+      .executeUpdate();
+    }
+  }
+
 
 }
