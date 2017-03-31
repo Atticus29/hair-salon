@@ -57,4 +57,21 @@ public class StylistTest {
     assertEquals(testStylist, testStylist2);
   }
 
+  // @Test
+  // public void getClients_returns_listOfClients_true(){
+  //   int stylistID = testStylist.getId();
+  //   Client testClient1 = new Client();
+  //   testClient1.setStylistId(stylistID);
+  //   testClient1.save();
+  //   Client testClient2 = new Client();
+  //   testClient2.setStylistId(stylistID);
+  //   testClient2.save();
+  //   Client testClient3 = new Client();
+  //   testClient3.setStylistId(stylistID);
+  //   testClient3.save();
+  //   List<Client> results = testStylist.getClients();
+  //   assertEquals(3, results.size());
+  //   assertEquals(testClient3, results.get(2));
+  // }
+
 }
