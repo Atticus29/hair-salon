@@ -105,5 +105,46 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/stylists/:stylistName/clients/:clientName", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String stylistName = request.params(":stylistName");
+      String clientName = request.params(":clientName");
+      Client currentClient = Client.findByName(clientName);
+      model.put("stylistID", stylistName);
+      model.put("client", currentClient);
+      model.put("template", "templates/client.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/stylists/:stylistID/clients/:clientName/update", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String stylistIdName = request.params(":stylistID");
+      int stylistIDNumber = Stylist.findByName(stylistIdName).getId();
+      String clientName = request.queryParams("client-name");
+      String clientPhone = request.queryParams("client-phone");
+      String clientAddress = request.queryParams("client-address");
+      String clientEmail = request.queryParams("client-email");
+      String clientSpecial = request.queryParams("client-special");
+      String clientStylistPref = request.queryParams("client-stylistPreference");
+      String clientEmergencyName = request.queryParams("client-emergency-name");
+      String clientEmergencyPhone = request.queryParams("client-emergency-phone");
+      String okTextString = request.queryParams("client-textOpt");
+      boolean okText = Boolean.parseBoolean(okTextString);
+      Client currentClient = Client.findByName(clientName);
+      currentClient.update(stylistIDNumber, clientName, clientPhone, clientAddress, clientEmail, clientSpecial, clientStylistPref, clientEmergencyName, clientEmergencyPhone, okText);
+      String url = String.format("/stylists/%s", stylistIdName);
+      response.redirect(url);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/stylists/:stylistID/clients/:clientName/delete", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String stylistName = request.params(":stylistID");
+      Client currentClient = Client.findByName(request.params(":clientName"));
+      currentClient.delete();
+      String url = String.format("/stylists/%s", stylistName);
+      response.redirect(url);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }

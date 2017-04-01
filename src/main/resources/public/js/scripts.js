@@ -19,6 +19,14 @@ $(function(){
    }, 2000);
   });
 
+  $("#client-update-button").click(function(){
+    event.preventDefault();
+    $("#client-update-form").show();
+    $('html, body').animate({
+       scrollTop: $("#client-update-form").offset().top
+   }, 2000);
+  });
+
   // $("#stylist-update-form").submit(function(){
   //   event.preventDefault();
   //   $("#hidden-edit-form").hide();

@@ -1,5 +1,7 @@
 #master_header{
   margin-bottom: 0px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #home-image{
@@ -17,7 +19,7 @@
 }
 
 #about-content{
-  display: none;
+  /*display: none;*/
 }
 
 .stylist-page-mugshot{
@@ -35,7 +37,7 @@
 }
 
 #logo-image{
-  width: 27%;
+  width: 432%;
   float: left;
 }
 
@@ -44,11 +46,13 @@
 }
 
 html{
-  background-color: #44865b;
+  /*background-color: #44865b;*/
+  background-color: #f4f4f4;
 }
 
 .jumbotron{
-  background-color: #016146;
+  /*background-color: #016146;*/
+  background-color: black;
 }
 
 .stylist-list-member{
@@ -56,14 +60,33 @@ html{
 }
 
 #main-row{
-  background-color: #44865b;
+  /*background-color: #44865b;*/
+  background-color: #f4f4f4;
   margin: 0px;
 }
 
 #main-title{
   text-align: center;
+  color: white;
 }
 
 #where-the-template-goes{
-  margin: 0px;
+  margin: 0px 0px 0px 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#client-update-form{
+  display: none;
+}
+
+#jumbotron-container{
+  padding-left: 0;
+  margin-left: 1%;
+  padding-right: 0;
+  margin-right: 1%;
+}
+
+#search-prompt-text{
+  color: white;
 }
