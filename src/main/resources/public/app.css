@@ -33,6 +33,14 @@
 }
 
 #logo-image{
-  width: 66%;
+  width: 27%;
   float: left;
+}
+
+#client-list{
+  text-align: left;
+}
+
+html{
+  background-color: #016146;
 }

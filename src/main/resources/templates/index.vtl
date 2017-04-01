@@ -17,10 +17,11 @@
     #if ($stylists)
       #foreach ($stylist in $stylists)
         <li>
+          <h3>$stylist.getName()</h3>
           <a href="/stylists/$stylist.getName()">
             <img src="$stylist.getPathToImg()" alt="$stylist.getName()">
           </a>
-          <h3>$stylist.getName()</h3>
+          <hr>
         </li>
       #end
     #else
