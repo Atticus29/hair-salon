@@ -148,8 +148,9 @@ SELECT pg_catalog.setval('clients_id_seq', 2, true);
 --
 
 COPY stylists (id, name, hours, specialties, pathtoimg) FROM stdin;
-2	Kim Chi	09:00-17:00TR	hair, color	../../resources/public/images/kimchi.jpg
-1	Naomi Smalls	09:00-17:00MWF	hair, color, extensions	../../resources/public/images/naomi.jpg
+3	Test1	09:00-16:00MTRF	color	../../resources/public/images/dummy.jpg
+1	Naomi Smalls	09:00-17:00MWF	hair, color, extensions	/images/naomi.jpg
+2	Kim Chi	09:00-17:00TR	hair, color	/images/kimchi.jpg
 \.
 
 
@@ -157,7 +158,7 @@ COPY stylists (id, name, hours, specialties, pathtoimg) FROM stdin;
 -- Name: stylists_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mf
 --
 
-SELECT pg_catalog.setval('stylists_id_seq', 2, true);
+SELECT pg_catalog.setval('stylists_id_seq', 3, true);
 
 
 --

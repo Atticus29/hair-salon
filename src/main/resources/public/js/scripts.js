@@ -11,7 +11,7 @@ $(function(){
     $("#about-content").show();
   });
 
-  $("#hidden-edit-form").click(function(){
+  $("#stylist-edit-trigger").click(function(){
     event.preventDefault();
     $("#hidden-edit-form").show();
   });

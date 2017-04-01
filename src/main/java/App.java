@@ -15,6 +15,7 @@ public class App {
       List<Stylist> stylists = Stylist.all();
       model.put("stylists", stylists);
       model.put("template", "templates/index.vtl");
+      // System.out.println("Images folder is" + $images_folder);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -67,7 +68,7 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       String stylistName = request.params(":stylistID");
       int stylistID = Stylist.findByName(stylistName).getId();
-      model.put("stylistName", stylistID);
+      model.put("stylistName", stylistName);
       model.put("stylistID", stylistID);
       model.put("template", "templates/client-form.vtl");
       return new ModelAndView(model, layout);
