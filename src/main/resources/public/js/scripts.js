@@ -14,10 +14,13 @@ $(function(){
   $("#stylist-edit-trigger").click(function(){
     event.preventDefault();
     $("#hidden-edit-form").show();
+    $('html, body').animate({
+       scrollTop: $("#hidden-edit-form").offset().top
+   }, 2000);
   });
 
-  $("#update-button").click(function(){
-    event.preventDefault();
-    $("#hidden-edit-form").hide();
-  });
+  // $("#stylist-update-form").submit(function(){
+  //   event.preventDefault();
+  //   $("#hidden-edit-form").hide();
+  // });
 });

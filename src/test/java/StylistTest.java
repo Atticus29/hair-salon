@@ -87,7 +87,7 @@ public class StylistTest {
   public void update_changesTheValuesOfAStylistInDatabase_true(){
     Stylist retrievedStylist = Stylist.find(testStylist.getId());
     assertTrue(retrievedStylist.equals(testStylist));
-    testStylist.update("JuJuBe", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/jujube.jpg");
+    testStylist.update("JuJuBe", "08:00-16:00MSN", "hair, corn rows", "/images/jujube.jpg");
     assertFalse(retrievedStylist.equals(Stylist.find(testStylist.getId())));
   }
 

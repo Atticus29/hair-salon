@@ -16,7 +16,7 @@
   <div class="col-md-10" id="main-content">
     #if ($stylists)
       #foreach ($stylist in $stylists)
-        <li>
+        <li class="stylist-list-member">
           <h3>$stylist.getName()</h3>
           <a href="/stylists/$stylist.getName()">
             <img src="$stylist.getPathToImg()" alt="$stylist.getName()">

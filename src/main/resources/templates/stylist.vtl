@@ -2,11 +2,8 @@
 
 <div class="row" id="stylist-master-row">
   <div class="col-md-2" id="client-list">
-    <button class="btn btn-warn" id="stylist-edit-trigger">Modify Stylist Details</button>
-    <!-- <form class="" action="index.html" method="post" id="stylist-edit-button">
-      <button type="submit" class="btn btn-warn">Modify Stylist Details</button>
-    </form> -->
-    <a href="/stylist/$stylist.getName()/delete" class="btn btn-danger">Remove Stylist</a>
+    <button class="btn btn-warning" id="stylist-edit-trigger">Modify Stylist Details</button>
+    <a href="/stylists/$stylist.getName()/delete" class="btn btn-danger">Remove Stylist</a>
     #if ($stylist.getClients().size()>0)
     <h3>Clients:</h3>
       #foreach ($client in $stylist.getClients())
@@ -19,8 +16,10 @@
     #end
     <a href="/stylists/$stylist.getName()/clients/new" class="btn btn-success">Add client</a>
   </div>
-  <div class="col-md-10" id="stylist-content">
+  <div class="col-md-2" id="stylist-mugshot">
     <img src="$stylist.getPathToImg()" alt="$stylist.getName()" class="stylist-page-mugshot">
+  </div>
+  <div class="col-md-8" id="stylist-content">
     <h2>
       Stylist: <h3>$stylist.getName()</h3>
     </h2>
@@ -31,7 +30,7 @@
       Services offered: <h4>$stylist.getSpecialties()</h4>
     </h3>
     <div id="hidden-edit-form">
-      <form action="/stylists/$stylist.getName()/update" method="post">
+      <form action="/stylists/$stylist.getName()/update" method="post" id="stylist-update-form">
         <label for="stylist-name">Name:</label>
         <input type="text" name="stylist-name" required class="form-control" value="$stylist.getName()">
         <br>
@@ -42,11 +41,11 @@
         <input type="text" name="stylist-specialties" class="form-control" required value="$stylist.getSpecialties()">
         <label for="stylist-image">(Optional) Image Path (e.g. "/images/raven.jpg"):</label>
         <input type="text" name="stylist-image" class="form-control" value="$stylist.getPathToImg()">
-        <button type="submit" id="update-button">Update</button>
+        <button type="submit" id="update-button" class="btn btn-success">Update</button>
       </form>
     </div>
     <footer>
-      Note: M = Monday, T = Tuesday, W = Wednesday, R = Thursday, F = Friday, S = Saturyda, N= Sunday
+      M = Monday, T = Tuesday, W = Wednesday, R = Thursday, F = Friday, S = Saturyda, N= Sunday
     </footer>
   </div>
 </div>
