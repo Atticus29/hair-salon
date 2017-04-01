@@ -1,9 +1,11 @@
 #master_header{
-
+  margin-bottom: 0px;
 }
 
 #home-image{
   float: left;
+  height: 50%;
+  width: auto;
 }
 
 /*#stylist-reveal{
@@ -20,8 +22,8 @@
 
 .stylist-page-mugshot{
   float: left;
-  height: 200px;
-  width: auto;
+  height: auto;
+  width: 109%;
 }
 
 #hidden-edit-form{
@@ -42,5 +44,26 @@
 }
 
 html{
+  background-color: #44865b;
+}
+
+.jumbotron{
   background-color: #016146;
+}
+
+.stylist-list-member{
+  list-style: none;
+}
+
+#main-row{
+  background-color: #44865b;
+  margin: 0px;
+}
+
+#main-title{
+  text-align: center;
+}
+
+#where-the-template-goes{
+  margin: 0px;
 }

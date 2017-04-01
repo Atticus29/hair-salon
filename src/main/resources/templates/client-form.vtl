@@ -1,6 +1,7 @@
 <!-- client-form.vtl -->
 
 <h2>Add a client to $stylistName's client list</h2>
+<!-- <h3>$stylistName is entry number $stylistID in the database</h3> -->
 
 <form action="/stylists/$stylistName" method="post">
   <input type="hidden" name="stylistid" value="$stylistID">
@@ -23,10 +24,10 @@
   <label for="client-textOpt">Would client want to be contacted via SMS regarding appointment details?</label>
   <div class="radio">
     <label>
-      <input type="radio" name="client-textOpt" class="form-control" value="true" checked> Yes
+      <input type="radio" name="client-textOpt" value="true" checked> Yes
     </label>
     <label>
-      <input type="radio" name="client-textOpt" class="form-control" value="false"> No
+      <input type="radio" name="client-textOpt" value="false"> No
     </label>
   </div>
   <button type="submit" class="btn btn-success">Add</button>
