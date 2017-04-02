@@ -147,5 +147,27 @@ public class App {
       response.redirect(url);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    post("/search", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String stylistName = request.queryParams("search-term");
+      Stylist currentStylist = Stylist.findByName("%" + stylistName + "%");
+      String url = "/";
+      if(currentStylist != null){
+        url = String.format("/stylists/%s", currentStylist.getName());
+      } else{
+        url = "/stylist-missing";
+      }
+      System.out.println("URL is " + url);
+      response.redirect(url);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/stylist-missing", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/stylist-missing.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
   }
 }

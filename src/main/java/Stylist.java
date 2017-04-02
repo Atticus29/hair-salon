@@ -83,7 +83,7 @@ public class Stylist {
   }
 
   public static Stylist findByName(String name){
-    String sqlCommand = "SELECT * FROM stylists WHERE name=:name;";
+    String sqlCommand = "SELECT * FROM stylists WHERE name LIKE :name;";
     try(Connection con = DB.sql2o.open()){
       Stylist result = con.createQuery(sqlCommand)
       .addParameter("name", name)
