@@ -53,9 +53,9 @@ public class StylistTest {
 
   @Test
   public void findByName_returnsSecondStylist_true(){
-    Stylist testStylist2 = new Stylist ("Raven", "08:00-16:00MSN", "hair, corn rows", "../../resources/public/images/raven.jpg");
+    Stylist testStylist2 = new Stylist ("Bebe", "08:00-16:00MSN", "hair, corn rows", "/images/raven.jpg");
     testStylist2.save();
-    int stylist2Name = testStylist2.getName();
+    String stylist2Name = testStylist2.getName();
     assertEquals(testStylist2, Stylist.findByName(stylist2Name));
   }
 
@@ -103,7 +103,7 @@ public class StylistTest {
   @Test
   public void stylist_assignsAnEmptyPathTheDummyJpg_true(){
     Stylist testStylist2 = new Stylist ("JuJuBe", "08:00-16:00MSN", "hair, corn rows", null);
-    assertEquals("../../resources/public/images/dummy.jpg", testStylist2.getPathToImg());
+    assertEquals("/images/dummy.jpg", testStylist2.getPathToImg());
   }
 
 }
