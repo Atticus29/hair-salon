@@ -89,7 +89,7 @@ public class ClientTest {
 
   @Test
   public void findByName_returnsSecondClient_true(){
-    Client testClient2 = new Client (1, "Victoria Porkchop Parker", "6095779090", "1 Porkchop Avenue Portland, OR 97217", "thatNoseThough@gmail.com", "Make sure to say hey to her", "Naomi Smalls", "Bennett Bennettson", "6095779091", true);
+    Client testClient2 = new Client (1, "Porkchop Parker", "6095779090", "1 Porkchop Avenue Portland, OR 97217", "thatNoseThough@gmail.com", "Make sure to say hey to her", "Naomi Smalls", "Bennett Bennettson", "6095779091", true);
     testClient2.save();
     String client2Name = testClient2.getName();
     assertEquals(testClient2, Client.findByName(client2Name));

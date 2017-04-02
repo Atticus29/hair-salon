@@ -167,7 +167,7 @@ public class Client {
   }
 
   public static Client findByName(String name){
-    String sqlCommand = "SELECT * FROM Clients WHERE name=:name;";
+    String sqlCommand = "SELECT * FROM clients WHERE name=:name;";
     try(Connection con = DB.sql2o.open()){
       Client result = con.createQuery(sqlCommand)
       .addParameter("name", name)
