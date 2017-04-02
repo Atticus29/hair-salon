@@ -57,6 +57,8 @@ public class StylistTest {
     testStylist2.save();
     String stylist2Name = testStylist2.getName();
     assertEquals(testStylist2, Stylist.findByName(stylist2Name));
+    String likeTest = "%Be%";
+    assertEquals(testStylist2, Stylist.findByName(likeTest));
   }
 
   @Test

@@ -39,6 +39,9 @@
 #logo-image{
   width: 432%;
   float: left;
+  border-style: outset;
+  border-width: 2px;
+  border-color: #ff00fb;
 }
 
 #client-list{
@@ -89,4 +92,14 @@ html{
 
 #search-prompt-text{
   color: white;
+}
+
+#stylist-master-row{
+  margin-left: 1%;
+}
+
+#logo-image:hover{
+  border-style: inset;
+  border-width: 2px;
+  border-color: #ff00fb;
 }
