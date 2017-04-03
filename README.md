@@ -44,6 +44,7 @@ Currently, clients are orphaned when their stylist is deleted. A future fix woul
 * _Set up a terminal session and run `postgres`_
 * _Set up a second terminal session and run `psql`_
 * _Create a new database in your psql session by typing, `CREATE DATABASE hair_salon;`_
+* _Connect to the database by typing, `\c hair_salon`_
 * _In another terminal session, navigate to the hair-salon repo directory from the command line, type, `psql hair_salon < hair_salon.sql`_
 * _Run the command `gradle run`_
 * _Open browser and go to localhost:4567_
